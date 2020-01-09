@@ -72,26 +72,31 @@ body {
 .section {
   margin-top: 20px;
 }
+
 .table {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
+
 .table-header {
-  margin-top: 15px; 
+  margin-top: 15px;
   color: #333;
   font-size: 16px;
   font-weight: bolder;
   border-bottom: 1px solid #dcdee3;
   background: #ebecf0;
 }
-.item-name{
+
+.item-name {
   flex: 2;
 }
+
 .item-describe {
   flex: 4;
 }
+
 .describe-content {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -100,15 +105,23 @@ body {
   width: 90%;
   word-wrap: break-word;
 }
-.deadline{
+.describe-content:hover {
+  overflow: visible;
+  width: 90%;
+  word-wrap: break-word;
+}
+.deadline {
   flex: 1;
 }
-.status{
+
+.status {
   flex: 1;
 }
-.operation{
-  flex: 1;  
+
+.operation {
+  flex: 1;
 }
+
 .delete-button {
   padding: 8px 15px;
   color: white;
@@ -116,15 +129,19 @@ body {
   border-radius: 4px;
   background-color: #ee706d;
 }
+
 .table-content {
   border-bottom: 1px solid #ccc;
 }
+
 .active {
   color: #666;
 }
+
 .pending {
   color: #ee706d;
 }
+
 .closed {
-  color:#f7da47;
+  color: #f7da47;
 }
