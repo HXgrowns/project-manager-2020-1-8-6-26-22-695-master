@@ -119,3 +119,12 @@ body {
 .table-content {
   border-bottom: 1px solid #ccc;
 }
+.active {
+  color: #666;
+}
+.pending {
+  color: #ee706d;
+}
+.closed {
+  color:#f7da47;
+}
