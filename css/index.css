@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-bar {
+  display: flex;
+  padding: 20px;
+  width: calc((90% - 58px)/4);
+  border-radius: 4px;
+}
+
+.all-task {
+  background-color: #31b48d;
+}
+
+.unsolved {
+  background-color: #38a1f2;
+}
+
+.processing {
+  background-color: #7538c7;
+}
+
+.processed {
+  background-color: #3b67a4;
+}
+
+.type-and-count {
+  flex: 2;
+  color: white;
+  font-family: serif, "Microsoft YaHei";
+}
+
+.task-type {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.task-count {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.type-img {
+  position: relative;
+  flex: 1;
+  text-align: right;
+}
+
+.in-time {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  padding: 2px;
+  color: white;
+  font-size: 12px;
+  border-radius: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
