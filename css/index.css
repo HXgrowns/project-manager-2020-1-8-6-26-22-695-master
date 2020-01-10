@@ -206,14 +206,14 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-.active {
+.ACTIVE {
   color: #666;
 }
 
-.pending {
+.PENDING {
   color: #ee706d;
 }
 
-.closed {
+.CLOSED {
   color: #f7da47;
 }
