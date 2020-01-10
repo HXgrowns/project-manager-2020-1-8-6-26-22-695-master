@@ -7,6 +7,80 @@ body {
   padding: 10px;
 }
 
+.isDelete-bg {
+  display: flex;
+  display: none;
+  position: absolute;
+  z-index: 999;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.isDelete-layout {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 340px;
+  background-color: white;
+}
+
+.cancel-err {
+  float: right;
+  color: #666;
+  font-size: 32px;
+}
+
+.warn-info {
+  display: flex;
+  margin-top: 26px;
+}
+
+.warn-img {
+  color: #f1c826;
+  font-size: 24px;
+}
+
+.warn-desc {
+  margin-left: 20px;
+}
+
+.warn-desc1 {
+  line-height: 24px;
+  color: #333;
+  font-size: 20px;
+}
+
+.warn-desc2 {
+  margin-top: 8px;
+  color: #666;
+  font-size: 20px;
+}
+
+.user-select {
+  float: right;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 8px 15px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.confirm {
+  background-color: #308cfe;
+}
+
+.cancal-font {
+  color: #333;
+  border: 1px solid #333;
+  background-color: white;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -105,11 +179,13 @@ body {
   width: 90%;
   word-wrap: break-word;
 }
+
 .describe-content:hover {
   overflow: visible;
   width: 90%;
   word-wrap: break-word;
 }
+
 .deadline {
   flex: 1;
 }
@@ -123,10 +199,6 @@ body {
 }
 
 .delete-button {
-  padding: 8px 15px;
-  color: white;
-  border: none;
-  border-radius: 4px;
   background-color: #ee706d;
 }
 

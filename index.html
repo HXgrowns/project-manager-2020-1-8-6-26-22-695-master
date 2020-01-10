@@ -9,6 +9,22 @@
 </head>
 
 <body>
+  <div id="isDelete" class="isDelete-bg">
+    <div class="isDelete-layout">
+      <div class="cancel-err" onclick="unseleteDelete()">×</div>
+      <div class="warn-info">
+        <span class="iconfont warn-img">&#xe60a</span>
+        <span class="warn-desc">
+          <p class="warn-desc1">提示</p>
+          <p class="warn-desc2">确认删除该项目吗？</p>
+        </span>
+      </div>
+      <div class="user-select">
+        <button class="confirm button">确认</button>
+        <button class="cancal-font button" onclick="unseleteDelete()">取消</button>
+      </div>
+    </div>
+  </div>
   <header class="header">
     <div class="status-bar all-task">
       <div class="type-and-count">
@@ -53,7 +69,7 @@
   </header>
   <section class="section">
     <h1>项目列表</h1>
-    <ul class="content">
+    <ul id= "items" class="content">
       <li class="table table-header">
         <div class="item-name">项目名称</div>
         <div class="item-describe">项目描述</div>
@@ -70,7 +86,7 @@
         </div>
         <div class="deadline">2018-12-01</div>
         <div class="status active">ACTIVE</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
+        <div class="operation"><button class="delete-button button" onclick="seletedDelete()">删除</button></div>
       </li>
       <li class="table table-content">
         <div class="item-name">Android-Universal-Image-Loader</div>
@@ -81,7 +97,7 @@
         </div>
         <div class="deadline">2018-12-01</div>
         <div class="status pending">PENDING</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
+        <div class="operation"><button class="delete-button button" onclick="isDelete()">删除</button></div>
       </li>
       <li class="table table-content">
         <div class="item-name">Android-Universal-Image-Loader</div>
@@ -92,54 +108,11 @@
         </div>
         <div class="deadline">2018-12-01</div>
         <div class="status closed">CLOSED</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
-      </li>
-      <li class="table table-content">
-        <div class="item-name">Android-Universal-Image-Loader</div>
-        <div class="item-describe">
-          <p class="describe-content">
-            这个是Facebook在React.js Conf2015大会上推出的基于JavaScript的开源框架React Native,该框架结合了Web应用和Native应用的优势，可以使用JavaScript啊啊啊啊
-          </p>
-        </div>
-        <div class="deadline">2018-12-01</div>
-        <div class="status">ACTIVE</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
-      </li>
-      <li class="table table-content">
-        <div class="item-name">Android-Universal-Image-Loader</div>
-        <div class="item-describe">
-          <p class="describe-content">
-            这个是Facebook在React.js Conf2015大会上推出的基于JavaScript的开源框架React Native,该框架结合了Web应用和Native应用的优势，可以使用JavaScript啊啊啊啊
-          </p>
-        </div>
-        <div class="deadline">2018-12-01</div>
-        <div class="status">ACTIVE</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
-      </li>
-      <li class="table table-content">
-        <div class="item-name">Android-Universal-Image-Loader</div>
-        <div class="item-describe">
-          <p class="describe-content">
-            这个是Facebook在React.js Conf2015大会上推出的基于JavaScript的开源框架React Native,该框架结合了Web应用和Native应用的优势，可以使用JavaScript啊啊啊啊
-          </p>
-        </div>
-        <div class="deadline">2018-12-01</div>
-        <div class="status">ACTIVE</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
-      </li>
-      <li class="table table-content">
-        <div class="item-name">Android-Universal-Image-Loader</div>
-        <div class="item-describe">
-          <p class="describe-content">
-            这个是Facebook在React.js Conf2015大会上推出的基于JavaScript的开源框架React Native,该框架结合了Web应用和Native应用的优势，可以使用JavaScript啊啊啊啊
-          </p>
-        </div>
-        <div class="deadline">2018-12-01</div>
-        <div class="status">ACTIVE</div>
-        <div class="operation"><button class="delete-button">删除</button></div>
+        <div class="operation"><button class="delete-button button">删除</button></div>
       </li>
     </ul>
   </section>
+  <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
