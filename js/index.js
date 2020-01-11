@@ -8,39 +8,13 @@ const unseleteDelete = () => {
   DeleteLayout.style.display = "none";
 }
 
-var request = function (options) {
-  let xhr = new XMLHttpRequest();
-  xhr.open(options.method || "GET", options.url);
-  try {
-    xhr.send(options.data);
-    xhr.onload = function () {
-      if (xhr.status != 200) {
-        options.fail(xhr.statusText);
-      } else {
-        options.success(xhr.responseText);
-      }
-    }
-  } catch (err) {
-    options.fail(err);
-  }
-}
-
-let options = {
-  url: "http://localhost:3000/projects",
-  method: "GET",
-  headers: {},   // 传给
-  data: "",     // 传给服务器的参数
-  success: function (result) { },  // 请求成功后调用此方法
-  fail: function (error) { }    // 请求失败或出错后调用此方法
-}
-options.success = (result) => {
-  console.log(result);
+const getSuccess = (result) => {
   let active = 0;
   let pending = 0;
   let closed = 0;
   JSON.parse(result).forEach((value) => {
     let item = `
-      <li class="table table-content">
+      <li id="item-${value.id}" class="table table-content">
       <div class="item-name">${value.name}</div>
       <div class="item-describe">
         <p class="describe-content">
@@ -49,7 +23,7 @@ options.success = (result) => {
       </div>
       <div class="deadline">${value.endTime}</div>
       <div class="status ${value.status}">${value.status}</div>
-      <div class="operation"><button class="delete-button button" onclick="seletedDelete()">删除</button></div>
+      <div class="operation"><button id="${value.id}" class="delete-button button" onclick="seletedDelete()">删除</button></div>
     </li>`;
     document.getElementById("items").innerHTML += item;
     if (value.status === "ACTIVE") {
@@ -68,4 +42,53 @@ options.success = (result) => {
   document.getElementById("closed").innerText = closed;
 }
 
-const data = request(options);
+var request = function (options) {
+  let xhr = new XMLHttpRequest();
+  xhr.open(options.method || "GET", options.url);
+  try {
+    xhr.send(options.data);
+    xhr.onload = function () {
+      if (xhr.status != 200) {
+        options.fail(xhr.statusText);
+      } else {
+        options.success(xhr.response);
+      }
+    }
+  } catch (err) {
+    options.fail(err);
+  }
+}
+
+window.onload = () => {
+  let options = {
+    url: "http://localhost:3000/projects",
+    method: "GET",
+    headers: {},
+    data: "",
+    success: function (data) {
+      getSuccess(data);
+    },
+    fail: function (error) { }
+  }
+  request(options);
+}
+
+document.getElementById("items").addEventListener('click', (e) => {
+  if (e.target) {
+    let idStr = e.target.getAttribute("id");
+    let id = parseInt(idStr);
+    document.getElementById("confirm").addEventListener('click', () => {
+      let options = {
+        url: `http://localhost:3000/projects/${id}`,
+        method: "DELETE",
+        headers: {},
+        data: "",
+        success: function (e) {
+        },
+        fail: function (error) {
+        }
+      }
+      request(options);
+    });
+  }
+});

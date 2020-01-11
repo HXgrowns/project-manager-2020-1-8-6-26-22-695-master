@@ -11,6 +11,7 @@ body {
   display: flex;
   display: none;
   position: absolute;
+  position: fixed;
   z-index: 999;
   width: calc(100% - 20px);
   height: calc(100% - 20px);
