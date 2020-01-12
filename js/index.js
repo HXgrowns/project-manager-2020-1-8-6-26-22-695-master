@@ -20,7 +20,7 @@ const getSuccess = (result) => {
   <div class="deadline">
     截止时间
     <span id="order" class="iconfont sort order" onclick="order()">&#xe645</span>
-    <span id="decOrder" class="iconfont sort des-order" onclick="decOrder()">&#xe62a</span>
+    <span id="decOrder" class="iconfont sort" onclick="decOrder()">&#xe62a</span>
   </div>
   <div class="status">状态</div>
   <div class="operation">操作</div>
@@ -109,15 +109,38 @@ document.getElementById("items").addEventListener('click', (e) => {
 });
 
 const order = () => {
-  sData.sort((a, b) => {
-    return b.endTime > a.endTime ? 1 : -1;
-  });
-  getSuccess(sData);
-}
-
-const decOrder = () => {
+  console.log("order");
   sData.sort((a, b) => {
     return b.endTime < a.endTime ? 1 : -1;
   });
   getSuccess(sData);
+  document.getElementById("order").className = "iconfont sort order";
+  document.getElementById("decOrder").className = "iconfont sort";
+}
+
+const decOrder = () => {
+  console.log("decOrder");
+  sData.sort((a, b) => {
+    return b.endTime > a.endTime ? 1 : -1;
+  });
+  getSuccess(sData);
+  document.getElementById("order").className = "iconfont sort";
+  document.getElementById("decOrder").className = "iconfont sort order";
+}
+
+const search = () => {
+  const inputText = document.getElementById("inputText").value;
+  let oData = [];
+  sData.forEach((value) => {
+    if (value.name.toLowerCase().indexOf(inputText.toLowerCase()) > -1) {
+      oData.push(value);
+    }
+  });
+  getSuccess(oData);
+}
+const onKeyPress = (e) => {
+  if (e && e.keyCode === 13) {
+    console.log(e);
+    search();
+  }
 }

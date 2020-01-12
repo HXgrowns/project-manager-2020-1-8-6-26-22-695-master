@@ -91,29 +91,24 @@
 }
 
 .sort {
+  color: #308cfe;
   font-size: 14px;
 }
 
 .order {
   color: red;
-  z-index: 999;
-  position: relative;
-}
-
-.des-order {
-  color: #308cfe;
-  z-index: 999;
-  position: relative;
 }
 
 .search-layout {
   position: relative;
   left: calc(100% - 400px);
+  width: 253px;
 }
 
 .search-img {
   position: absolute;
-  top: 200px;
+  top: 17%;
+  left: 88%;
   font-size: 20px;
   color: #333;
   float: right;

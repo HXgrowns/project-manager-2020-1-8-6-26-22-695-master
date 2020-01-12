@@ -69,8 +69,9 @@
   </header>
   <section class="section">
     <div class="search-layout">
-      <input class="search" type="text" placeholder="请输入项目名中的关键字进行搜索" />
-      <span class="iconfont search-img">&#xe652</span>
+      <input id="inputText" class="search" type="text" placeholder="请输入项目名中的关键字进行搜索" onkeypress="onKeyPress(event)" />
+      <span class="iconfont search-img" onclick="search()">&#xe652</span>
+      <input style="display: none;" />
     </div>
 
     <h1>项目列表</h1>
@@ -81,7 +82,7 @@
         <div class="deadline">
           截止时间
           <span id="order" class="iconfont sort order" onclick="order()">&#xe645</span>
-          <span id="decOrder" class="iconfont sort des-order" onclick="decOrder()">&#xe62a</span>
+          <span id="decOrder" class="iconfont sort" onclick="decOrder()">&#xe62a</span>
         </div>
         <div class="status">状态</div>
         <div class="operation">操作</div>
