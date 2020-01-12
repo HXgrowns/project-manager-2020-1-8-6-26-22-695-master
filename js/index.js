@@ -1,3 +1,4 @@
+let sData = [];
 const seletedDelete = () => {
   let DeleteLayout = document.getElementById("isDelete");
   DeleteLayout.style.display = "block";
@@ -12,7 +13,19 @@ const getSuccess = (result) => {
   let active = 0;
   let pending = 0;
   let closed = 0;
-  JSON.parse(result).forEach((value) => {
+  let itemsEle = document.getElementById("items");
+  itemsEle.innerHTML = `<li class="table table-header">
+  <div class="item-name">项目名称</div>
+  <div class="item-describe">项目描述</div>
+  <div class="deadline">
+    截止时间
+    <span id="order" class="iconfont sort order" onclick="order()">&#xe645</span>
+    <span id="decOrder" class="iconfont sort des-order" onclick="decOrder()">&#xe62a</span>
+  </div>
+  <div class="status">状态</div>
+  <div class="operation">操作</div>
+</li>`;
+  result.forEach((value) => {
     let item = `
       <li id="item-${value.id}" class="table table-content">
       <div class="item-name">${value.name}</div>
@@ -25,7 +38,7 @@ const getSuccess = (result) => {
       <div class="status ${value.status}">${value.status}</div>
       <div class="operation"><button id="${value.id}" class="delete-button button" onclick="seletedDelete()">删除</button></div>
     </li>`;
-    document.getElementById("items").innerHTML += item;
+    itemsEle.innerHTML += item;
     if (value.status === "ACTIVE") {
       active++;
     }
@@ -36,7 +49,7 @@ const getSuccess = (result) => {
       closed++;
     }
   });
-  document.getElementById("all").innerText = JSON.parse(result).length;
+  document.getElementById("all").innerText = result.length;
   document.getElementById("active").innerText = active;
   document.getElementById("pending").innerText = pending;
   document.getElementById("closed").innerText = closed;
@@ -66,7 +79,8 @@ window.onload = () => {
     headers: {},
     data: "",
     success: function (data) {
-      getSuccess(data);
+      getSuccess(JSON.parse(data));
+      sData = JSON.parse(data);
     },
     fail: function (error) { }
   }
@@ -84,6 +98,7 @@ document.getElementById("items").addEventListener('click', (e) => {
         headers: {},
         data: "",
         success: function (e) {
+          location.reload();
         },
         fail: function (error) {
         }
@@ -92,3 +107,17 @@ document.getElementById("items").addEventListener('click', (e) => {
     });
   }
 });
+
+const order = () => {
+  sData.sort((a, b) => {
+    return b.endTime > a.endTime ? 1 : -1;
+  });
+  getSuccess(sData);
+}
+
+const decOrder = () => {
+  sData.sort((a, b) => {
+    return b.endTime < a.endTime ? 1 : -1;
+  });
+  getSuccess(sData);
+}

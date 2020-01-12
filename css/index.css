@@ -3,10 +3,6 @@
   padding: 0;
 }
 
-body {
-  padding: 10px;
-}
-
 .isDelete-bg {
   display: flex;
   display: none;
@@ -92,6 +88,43 @@ body {
   padding: 20px;
   width: calc((90% - 58px)/4);
   border-radius: 4px;
+}
+
+.sort {
+  font-size: 14px;
+}
+
+.order {
+  color: red;
+  z-index: 999;
+  position: relative;
+}
+
+.des-order {
+  color: #308cfe;
+  z-index: 999;
+  position: relative;
+}
+
+.search-layout {
+  position: relative;
+  left: calc(100% - 400px);
+}
+
+.search-img {
+  position: absolute;
+  top: 200px;
+  font-size: 20px;
+  color: #333;
+  float: right;
+}
+
+.search {
+  width: 200px;
+  height: 32px;
+  padding: 0 38px 0 12px;
+  border-radius: 20px;
+  border: 1px solid #eee;
 }
 
 .all-task {
@@ -217,4 +250,10 @@ body {
 
 .CLOSED {
   color: #f7da47;
+}
+
+@media screen and (max-width: 800px) {
+  .iconfont {
+    font-size: 60px;
+  }
 }
